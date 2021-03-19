@@ -9,7 +9,7 @@ Para el aseguramiento de la calidad se han desarrollado pruebas unitarias y de i
 
 A continuación se muestra una imagen de los componentes de la arquitectura empreada en el proyecto.
 
-![enter image description here](https://raw.githubusercontent.com/makinsc/GoalSystem/main/overview.png?token=AASZMVZYTBVTCEJA2WTZ7GTAKRS3Y)
+![overview (1)](https://user-images.githubusercontent.com/2463319/111797767-bd42ae80-88c9-11eb-8e8c-d7750252dcd1.png)
 
 Se pretende utilizar una arquitectura que cumpla con los principios de programación SOLID, que sea fácil de mantener, no excesivamente compleja de evolucionar para que sea escalable y que nos permita testear cada componente de manera individual e integrada para poder asegurar la calidad del código y de los entregables.
 Es por ello que vamos a seguir el marco de Arquitectura N-Capas Orientada al Dominio como parte del diseño de arquitectura Domain Driven Design (DDD). El objetivo será tener el mínimo acoplamiento posible entre el Modelo de Dominio (lógica y reglas de Negocio) y el resto de las capas del sistema (Presentación, Persistencia, etc).
@@ -82,4 +82,4 @@ Se han desarrollado una serie de funcionalidades interesantes como pueden ser:
  - Documentación de la API con Swagger: He documentado la aplicación con Swagger y generado cierta documentación (no tan completa como me gustaría) que se mostrará en una interfaz amigable para la comprensión y fácil integración de la API.
  - Versionado de la API, que se usará para mantener la retrocompatibilidad hacia atrás y asegurar que los integradores ya existentes sigan funcionando y no se vean afectados por nuevos desarrollos.
  - Utilización de SignalR por web Socket para comunicación desde el backend con los frontales.
- - Realización de servicio Auto-Hospedado que lanzará revisiones de elementos caducados y notificará de estos a los clientes suscritos al canal de notificaciones.![overview (1)](https://user-images.githubusercontent.com/2463319/111797767-bd42ae80-88c9-11eb-8e8c-d7750252dcd1.png)
+ - Realización de servicio Auto-Hospedado que lanzará revisiones de elementos caducados y notificará de estos a los clientes suscritos al canal de notificaciones.
