@@ -18,7 +18,8 @@ Es por ello que vamos a seguir el marco de Arquitectura N-Capas Orientada al Dom
 
 ### Capa de Servicios Distribuidos
 En esta capa tendremos la aplicación de servicios Rest API, encargada de proporcionar la información requerida por los frontales. Además dispondrá de un Hub de notificaciones en tiempo real por WebSocket, diseñado con tecnología **SignalR**
-En la el proyecto de **Api Rest** tendremos definida la inyección de dependencias, así como los servicios en background autohospedados de inspección de elementos caducados, que lanzará una notificación hacia los clientes conectados en el Hub de notificaciones.
+En el proyecto de **Api Rest** tendremos definida la inyección de dependencias, así como los servicios en background autohospedados de inspección de elementos caducados, que lanzará una notificación hacia los clientes conectados en el Hub de notificaciones.
+Por otro lado, he documentado la **API con Swagger**, que nos permite, además de comprender el funcionamiento de cada endpoint, lanzar y probar la api desde una interfaz amigable.
 
 ### Capa de Aplicación
 Esta capa define las tareas y casos de usuario que la aplicación debe realizar, realizando ahí la lógica específica de la aplicación si es que la hubiera; además enlaza con la capa de dominio, que son los que implementan el proceso y las reglas de negocio.
@@ -62,3 +63,23 @@ Para arrancar la aplicación, hay que configurarle una base de datos SQL Server.
 En el fichero de configuración por entorno Development.json unbicado en el proyecto DistributedServices.API, hay que cambiar la cadena de conexión.
 Tras esto, habrá que lanzar las migraciones hacia la base de datos. Dichas migraciones se encuentran en el proyecto de persistencia **Persistence.Database** con el comando Update-database en la consola de administración. También podemos descomentar la línea Context.Database.Migrate() en el fichero Startup.cs del proyecto DistibutedServices.API y arrancar el proyecto. Esto lanzará todas las migraciones pendientes y creará la base de datos si no existe. 
 >Esta línea es mejor dejarla comentada posteriormente, para evitar lanzar migraciones de manera descontrolada hacia la base de datos.
+
+## Exclusiones del desarrollo
+
+No se han implementado una serie de funcionalidades básicas por no querer extender demasiado en el tiempo la realización de esta prueba, como pueden ser las siguientes:
+
+ - No se ha implementado una securización de la aplicación: En proyectos reales, debe siempre securizarse las aplicaciones, al menos con una autenticación básica. Aunque esto ya depende de las particularidades de cada proyecto, pero podría usarse un servidor de Autenticación/Autorización como Identity Server o similar, AzureAD o Autenticación por token Bearer.
+ - No se ha implementado ningún mecanismo de Caché, el cual es siempre necesario en cualquier proyecto real que se realice. Lo ideal es utilizar siempre una caché distribuida, como Azure Cache Redis o similar, para hacer escalable la aplicación y el propio mecanismo de caché.
+ - No se ha implementado, como se ha comentado previamente, un patrón de validación de reglas de negocio, pero es totalmente necesario implementarlo para cualquier proyecto serio.
+ 
+
+## Detalles del desarrollo
+
+Se han desarrollado una serie de funcionalidades interesantes como pueden ser:
+
+ - Test Unitarios: Importantes para asegurar la calidad y el buen funcionamiento de los métodos de manera atómica. Se ha implementado usando MSTest.
+ - Test de Integración: Importantes para el aseguramiento de la calidad y que los diferentes componentes de la solución se comunican e interactúan como se espera.
+ - Documentación de la API con Swagger: He documentado la aplicación con Swagger y generado cierta documentación (no tan completa como me gustaría) que se mostrará en una interfaz amigable para la comprensión y fácil integración de la API.
+ - Versionado de la API, que se usará para mantener la retrocompatibilidad hacia atrás y asegurar que los integradores ya existentes sigan funcionando y no se vean afectados por nuevos desarrollos.
+ - Utilización de SignalR por web Socket para comunicación desde el backend con los frontales.
+ - Realización de servicio Auto-Hospedado que lanzará revisiones de elementos caducados y notificará de estos a los clientes suscritos al canal de notificaciones.![overview (1)](https://user-images.githubusercontent.com/2463319/111797767-bd42ae80-88c9-11eb-8e8c-d7750252dcd1.png)
