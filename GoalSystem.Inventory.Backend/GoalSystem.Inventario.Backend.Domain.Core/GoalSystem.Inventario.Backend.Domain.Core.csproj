@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="9.0.0" />
+    <PackageReference Include="coverlet.collector" Version="1.3.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="coverlet.msbuild" Version="2.9.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="System.Reactive" Version="5.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Goalsystem.Inventario.Backend.DistributedServices.SignalR\GoalSystem.Inventario.Backend.DistributedServices.SignalR.csproj" />
+    <ProjectReference Include="..\GoalSystem.Inventario.Backend.Infrastructure.Persistence.Models\GoalSystem.Inventario.Backend.Infrastructure.Persistence.Models.csproj" />
+    <ProjectReference Include="..\GoalSystem.Inventario.Backend.Transversal.Models\GoalSystem.Inventario.Backend.Transversal.Models.csproj" />
+  </ItemGroup>
+
+</Project>

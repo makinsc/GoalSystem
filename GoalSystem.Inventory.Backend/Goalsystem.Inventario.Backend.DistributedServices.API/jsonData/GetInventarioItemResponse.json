@@ -1,0 +1,23 @@
+[
+  {
+    "Id": "61AB2562-3BED-48C5-8216-401E59CA52D9",
+    "Nombre": "Item 1",
+    "FechaCaducidad": "12/12/2021 23:59:00",
+    "Unidades": 12,
+    "isExpired": false
+  },
+  {
+    "Id": "61AB2562-3BED-48C5-8216-401E59CA52D0",
+    "Nombre": "Item 2",
+    "FechaCaducidad": "12/12/2021 23:59:00",
+    "Unidades": 1,
+    "isExpired": false
+  },
+  {
+    "Id": "61AB2562-3BED-48C5-8216-401E59CA52D1",
+    "Nombre": "Item 3",
+    "FechaCaducidad": "12/12/2020 23:59:00",
+    "Unidades": 34,
+    "isExpired": true
+  }
+]
